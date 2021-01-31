@@ -35,4 +35,9 @@ public class UserMapperImpl implements UserMapper {
         sqlSession.close();
         return userList;
     }
+
+    @Override
+    public List<User> findByIds(List<Integer> dataList) throws IOException {
+        return null;
+    }
 }

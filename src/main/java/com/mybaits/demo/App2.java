@@ -9,10 +9,14 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * @ClassName: App2
@@ -22,13 +26,20 @@ import java.util.List;
  * @Version: V1.0
  **/
 public class App2 {
+    private static Logger log = Logger.getLogger(App2.class);
     public static void main(String[] args) throws IOException {
         //方式一：传统方法
         //UserService userService=new UserServiceImpl();
         //userService.findAll();
         //方法二： 代理方式
+
         UserService2 userService=new UserServiceImpl2();
         userService.findAll();
+        List<Integer> dataList=new ArrayList<Integer>();
+        dataList.add(1);
+        dataList.add(2);
+        userService.findByIds(dataList);
+        log.info("执行完了！！！");
     }
 
 }

@@ -37,4 +37,22 @@ public class UserServiceImpl2 implements UserService2 {
         sqlSession.close();
         return userList;
     }
+
+    @Override
+    public List<User> findByIds(List<Integer> dataList) throws IOException {
+        //加载核心配置文件
+        InputStream resourcesAsStream= Resources.getResourceAsStream("mybaitsConfig.xml");
+        //获得sqlsession 工厂对象
+        SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(resourcesAsStream);
+        //获得sqlsession对象
+        SqlSession sqlSession=sqlSessionFactory.openSession();
+        //产生代理对象
+        UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
+        List<User> userList= userMapper.findByIds(dataList);
+        //打印资源
+        System.out.println("userlist:"+userList);
+        //关闭释放资源
+        sqlSession.close();
+        return userList;
+    }
 }

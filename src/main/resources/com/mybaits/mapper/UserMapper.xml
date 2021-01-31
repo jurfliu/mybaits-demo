@@ -6,6 +6,14 @@
     <select id="findAll" resultType="yonghu">
         select id,user_name,password from tb_user
     </select>
+    <!-- 查询byid-->
+    <select id="findByIds" parameterType="java.util.List" resultType="com.mybaits.demo.bean.User">
+        select id,user_name userName,password from tb_user
+        where
+        <foreach collection="list" open="id in(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </select>
     <!-- 添加-->
     <insert id="addUser" parameterType="com.mybaits.demo.bean.User">
         insert into tb_user(id,user_name,password) values(#{id},#{userName},#{password})

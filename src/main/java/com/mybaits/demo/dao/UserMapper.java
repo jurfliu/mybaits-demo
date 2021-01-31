@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface UserMapper {
     List<User> findAll() throws IOException;
+    List<User> findByIds(List<Integer> dataList) throws IOException;
 }
 
