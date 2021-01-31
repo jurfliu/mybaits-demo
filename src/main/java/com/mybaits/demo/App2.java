@@ -2,7 +2,9 @@ package com.mybaits.demo;
 
 import com.mybaits.demo.bean.User;
 import com.mybaits.demo.service.UserService;
+import com.mybaits.demo.service.UserService2;
 import com.mybaits.demo.service.impl.UserServiceImpl;
+import com.mybaits.demo.service.impl.UserServiceImpl2;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,7 +23,11 @@ import java.util.List;
  **/
 public class App2 {
     public static void main(String[] args) throws IOException {
-        UserService userService=new UserServiceImpl();
+        //方式一：传统方法
+        //UserService userService=new UserServiceImpl();
+        //userService.findAll();
+        //方法二： 代理方式
+        UserService2 userService=new UserServiceImpl2();
         userService.findAll();
     }
 
