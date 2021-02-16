@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <!-- <mapper namespace="yonghuMapper">  -->
 <mapper namespace="com.mybaits.demo.dao.UserMapper">
-     <!-- 查询 -->
+     <!-- 查询， 在mybaitsconfig.xml文件中给起了别名 -->
     <select id="findAll" resultType="yonghu">
         select id,user_name,password from tb_user
     </select>

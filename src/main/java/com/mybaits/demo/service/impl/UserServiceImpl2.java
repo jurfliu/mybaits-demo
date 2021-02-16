@@ -1,5 +1,6 @@
 package com.mybaits.demo.service.impl;
 
+        import com.mybaits.demo.bean.Org;
         import com.mybaits.demo.bean.User;
         import com.mybaits.demo.dao.UserMapper;
         import com.mybaits.demo.service.UserService2;
@@ -55,4 +56,8 @@ public class UserServiceImpl2 implements UserService2 {
         sqlSession.close();
         return userList;
     }
+
+
+
+
 }

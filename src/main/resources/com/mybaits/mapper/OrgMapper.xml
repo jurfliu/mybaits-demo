@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- <mapper namespace="yonghuMapper">  -->
+<mapper namespace="com.mybaits.demo.dao.OrgMapper">
+
+    <!-- 添加-->
+    <insert id="addOrg" parameterType="com.mybaits.demo.bean.Org">
+        insert into tb_org(id,org_name,create_time) values(#{id},#{orgName},#{createTime})
+    </insert>
+    <!-- 查询-->
+    <select id="findAllOrg" resultType="com.mybaits.demo.bean.Org">
+        select id,org_name orgName,create_time createTime from tb_org
+    </select>
+
+
+</mapper>
